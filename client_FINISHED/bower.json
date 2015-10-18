@@ -1,0 +1,23 @@
+{
+  "name": "client_2",
+  "version": "0.0.0",
+  "authors": [
+    "johnptmcdonald <johnptmcdonald@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.3.5"
+  }
+}
