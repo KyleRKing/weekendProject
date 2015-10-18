@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Users Auth App</title>
+	<link rel="stylesheet" type="text/css" href="./bower_components/bootstrap/dist/css/bootstrap.css">
+	<script type="text/javascript" src="./bower_components/angular/angular.js"></script>
+	<script type="text/javascript" src="./bower_components/jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src="./bower_components/bootstrap/dist/js/bootstrap.js"></script>
+	<script type="text/javascript" src="./bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" src="js/mainController.js"></script>
+  <script type="text/javascript" src="js/authFactories.js"></script>
+</head>
+
+<!-- Every page will have access to the main controller -->
+<!-- Each page will also have its own controller (described by the ui-router config in the app.js file) -->
+<body  ng-app="authApp" ng-controller="MainController as mainCtrl">
+
+<!-- the bootstrap navbar -->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" ui-sref="home">Authentication</a>
+    </div>
+
+    <ul class="nav navbar-nav navbar-right">
+      <li ng-if="mainCtrl.loggedIn"><a>Hi {{mainCtrl.user.username}}</a></li>
+			<button ng-click="mainCtrl.addTask()">Add Task</button>
+				<div ng-if="mainCtrl.toggleAdd">
+					<input ng-model="mainCtrl.newTask.task">
+					<button ng-click="mainCtrl.sendTask()">Send</button>
+				</div>
+      <li ng-if="!mainCtrl.loggedIn"><a ui-sref="login">Login</a></li>
+      <li ng-if="!mainCtrl.loggedIn"><a ui-sref="signup">Sign up</a></li>
+      <li ng-if="mainCtrl.loggedIn"><a ng-click="mainCtrl.logout()">Log out</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- rendering the views inside a div -->
+<div class="container">
+  <div ui-view></div>
+</div>
+
+<!-- a footer, just because -->
+<footer>
+  <hr>
+</footer>
+
+</body>
+</html>
